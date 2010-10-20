@@ -9,6 +9,6 @@ Make all children of a particular collection of elements have the height of the 
     
 Make collection of elements, filtered by a function, have height of tallest one:
 
-    $('#container').sameHeight(elements: function() {
+    $('#container').sameHeight({elements: function() {
       return this.children('.special');
     });
