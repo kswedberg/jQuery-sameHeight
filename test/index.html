@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>sameHeight Plugin Tests</title>
+  <link rel="stylesheet" href="qunit/qunit.css" type="text/css" media="screen">
+  <style type="text/css">
+    .sh,
+    .nsh {
+      width: 150px; 
+      float: left; 
+      margin-right: 20px; 
+      border: 1px solid #999;
+    }
+    /*#qunit-fixture {
+          position: relative; 
+          left: 0; 
+          top: 0;
+        }*/
+    
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="qunit/qunit.js"></script>
+  <script src="../jquery.sameheight.js"></script>
+  
+</head>
+<body>
+  <h1 id="qunit-header">sameHeight Plugin Tests</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">
+    <div class="container">
+      <div class="sh one">
+        div one
+      </div>
+      <div class="sh two">
+        div two Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div class="nsh three">
+        div three Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div class="nsh four">
+        div three Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+      </div>
+    </div>
+  </div>
+  <script src="test.js"></script>
+  
+</body>
+</html>
