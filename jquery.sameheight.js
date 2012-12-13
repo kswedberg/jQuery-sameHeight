@@ -1,14 +1,18 @@
-/***************************************
-* Same Height jQuery Plugin
-* @author Karl Swedberg
-* @version 1.0 (Oct 20, 2010)
-* @requires jQuery v1.3+
-*
-* Dual licensed under the MIT and GPL licenses (just like jQuery):
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.gnu.org/licenses/gpl.html
-
-************************************** */
+/*!
+ * Same Height jQuery Plugin v1.1
+ *
+ * Date: Thu Dec 13 16:23:19 2012 EST
+ * Requires: jQuery v1.3+
+ *
+ * Copyright 2012, Karl Swedberg
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ *
+ *
+ *
+ *
+*/
 
 
 (function($) {
