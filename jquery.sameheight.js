@@ -1,7 +1,7 @@
 /*!
- * Same Height jQuery Plugin v1.1
+ * Same Height jQuery Plugin v1.2
  *
- * Date: Thu Dec 13 16:23:19 2012 EST
+ * Date: Thu Dec 13 17:24:45 2012 EST
  * Requires: jQuery v1.3+
  *
  * Copyright 2012, Karl Swedberg
@@ -33,7 +33,7 @@
     opts.before.call(this, $els);
 
     heights = $els.map(function() {
-      return $(this).height();
+      return parseInt( $(this).css('height'), 10 );
     });
 
     maxHeight = Math.max.apply( Math, heights.get() );
