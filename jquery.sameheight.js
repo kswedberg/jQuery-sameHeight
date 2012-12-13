@@ -15,7 +15,9 @@
 
   $.fn.sameHeight = function(options) {
 
-    var opts = $.extend({}, $.fn.sameHeight.defaults, options),
+
+    var heights, maxHeight, idx,
+        opts = $.extend({}, $.fn.sameHeight.defaults, options),
         $els = this;
 
     if ( $.isFunction(opts.elements) ) {
@@ -24,37 +26,45 @@
       $els = $els.children();
     }
 
-    var heights = $els.map(function() {
+    opts.before.call(this, $els);
+
+    heights = $els.map(function() {
       return $(this).height();
     });
-    
-    var maxHeight = Math.max.apply( Math, heights.get() );
+
+    maxHeight = Math.max.apply( Math, heights.get() );
 
     if (opts.adjust === 'height') {
 
       maxHeight += opts.extra;
-      $els.each(function() {
-        $(this).height(maxHeight);
-      });
+      $els.css({height: maxHeight});
 
     } else {
 
-      var idx = $.inArray(maxHeight, heights.get());
+      idx = $.inArray(maxHeight, heights.get());
       maxHeight += parseInt( $els.eq(idx).css(opts.adjust), 10 );
+
       $els.each(function() {
-        var thisAdjust = Math.max( 0, maxHeight - $(this).height() );
-        $(this).css(opts.adjust, thisAdjust + 'px');
+        var $el = $(this),
+            style = {};
+
+        style[opts.adjust] = ( Math.max(0, maxHeight - $el.height()) ) + 'px';
+        $el.css(style);
       });
 
     }
+
+    opts.after.call(this, $els);
 
     return this;
   };
 
   $.fn.sameHeight.defaults = {
+    before: function() {},
+    after: function() {},
     extra: 0,
     adjust: 'height', // one of 'height', 'padding-top', 'padding-bottom'
-    elements: 'children'  // can be a falsy value, in which case it uses the jQuery collection; 
+    elements: 'children'  // can be a falsy value, in which case it uses the jQuery collection;
                           // a function, which is scoped to the jQuery collection ( this == jQuery collection)
                           // or "children" which will just use all children of the elements in jQuery collection
   };
