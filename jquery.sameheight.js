@@ -1,7 +1,7 @@
 /*!
- * Same Height jQuery Plugin v1.2
+ * Same Height jQuery Plugin v1.3
  *
- * Date: Wed Jan 02 12:03:44 2013 EST
+ * Date: Wed Jan 16 15:15:47 2013 EST
  * Requires: jQuery v1.3+
  *
  * Copyright 2013, Karl Swedberg
@@ -46,7 +46,12 @@
       if (opts.adjust === 'height') {
 
         maxHeight += opts.extra;
-        $els.css({height: maxHeight});
+        if (opts.animate) {
+          opts.animate = $.isPlainObject(opts.animate) ? opts.animate : {};
+          $els.animate({height: maxHeight}, opts.animate);
+        } else {
+          $els.css({height: maxHeight});
+        }
 
       } else {
 
@@ -78,6 +83,7 @@
   };
 
   $.fn.sameHeight.defaults = {
+    animate: false, // true or animate options object to animate heights
     before: function() {},
     after: function() {},
     extra: 0,
